@@ -22,7 +22,7 @@ namespace Catalog.API.Controllers
         }
 
         [HttpGet]
-        [ProducesResponseType(typeof(IEnumerable<Product>), (int) HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(IEnumerable<Product>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<Product>>> GetProductsAsync()
         {
             IEnumerable<Product> products = await _productRepository.GetProducts();
@@ -30,8 +30,8 @@ namespace Catalog.API.Controllers
         }
 
         [HttpGet("{id:length(24)}", Name = "GetProduct")]
-        [ProducesResponseType((int) HttpStatusCode.NotFound)]
-        [ProducesResponseType(typeof(IEnumerable<Product>), (int) HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.NotFound)]
+        [ProducesResponseType(typeof(IEnumerable<Product>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<Product>>> GetProductAsync(string id)
         {
             Product product = await _productRepository.GetProduct(id);
@@ -42,7 +42,7 @@ namespace Catalog.API.Controllers
 
         [HttpGet]
         [Route("[action]/{category}")]
-        [ProducesResponseType(typeof(IEnumerable<Product>), (int) HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(IEnumerable<Product>), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<IEnumerable<Product>>> GetProductByCategoryAsync(string category)
         {
             IEnumerable<Product> products = await _productRepository.GetProductsByName(category);
@@ -50,25 +50,25 @@ namespace Catalog.API.Controllers
         }
 
         [HttpPost]
-        [ProducesResponseType(typeof(Product), (int) HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(Product), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<Product>> CreateProductAsync([FromBody] Product product)
         {
             await _productRepository.CreateProduct(product);
-            return CreatedAtRoute("GetProduct", new {id = product.Id}, product);
+            return CreatedAtRoute("GetProduct", new { id = product.Id }, product);
         }
 
         [HttpPut]
-        [ProducesResponseType(typeof(Product), (int) HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(Product), (int)HttpStatusCode.OK)]
         public async Task<ActionResult> UpdateProductAsync([FromBody] Product product)
         {
             return Ok(await _productRepository.UpdateProduct(product));
         }
 
         [HttpDelete]
-        [ProducesResponseType(typeof(Product), (int) HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(Product), (int)HttpStatusCode.OK)]
         public async Task<ActionResult> DeleteProductAsync(string id)
         {
-            return Ok(await  _productRepository.DeleteProduct(id));
+            return Ok(await _productRepository.DeleteProduct(id));
         }
     }
 }
