@@ -16,6 +16,10 @@ ProjectSection(SolutionItems) = preProject
 	docker-compose.yml = docker-compose.yml
 EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Discount", "Discount", "{87625819-344E-48D7-AABA-59A8AE020BD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discount.API", "Services\Discount\Discount.API\Discount.API.csproj", "{0E4A27E3-623E-4E17-B434-4CA72C9EABE6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,6 +30,8 @@ Global
 		{04C5BEA3-C4F2-4E4E-991F-64D341787313} = {1939ABA5-1B8D-49A9-8DAD-6C2F9B80A534}
 		{BE701B58-CB3D-46A8-BA25-96A5D16FDEE6} = {FBD2541A-7969-4347-90D2-752FA5AC24AB}
 		{8D4BCDF3-0C8E-4D1D-A193-A26A3E70BF38} = {BE701B58-CB3D-46A8-BA25-96A5D16FDEE6}
+		{87625819-344E-48D7-AABA-59A8AE020BD3} = {FBD2541A-7969-4347-90D2-752FA5AC24AB}
+		{0E4A27E3-623E-4E17-B434-4CA72C9EABE6} = {87625819-344E-48D7-AABA-59A8AE020BD3}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{04C5BEA3-C4F2-4E4E-991F-64D341787313}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -37,5 +43,9 @@ Global
 		{8D4BCDF3-0C8E-4D1D-A193-A26A3E70BF38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8D4BCDF3-0C8E-4D1D-A193-A26A3E70BF38}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8D4BCDF3-0C8E-4D1D-A193-A26A3E70BF38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E4A27E3-623E-4E17-B434-4CA72C9EABE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E4A27E3-623E-4E17-B434-4CA72C9EABE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E4A27E3-623E-4E17-B434-4CA72C9EABE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E4A27E3-623E-4E17-B434-4CA72C9EABE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -9,6 +9,10 @@ services:
     image: redis:alpine
     networks:
       - microaspnet
+  discountdb:
+    image: postgres
+    networks:
+      - microaspnet
   portainer:
     image: portainer/portainer-ce
     networks:
@@ -27,10 +31,17 @@ services:
       dockerfile: Services/Basket/Basket.API/Dockerfile
     networks:
       - microaspnet
-    
+  discount.api:
+    image: ${DOCKER_REGISTRY-}discountapi
+    build:
+      context: .
+      dockerfile: Services/Discount/Discount.API/Dockerfile
+    networks:
+      - microaspnet
 volumes:
   mongo_data:
   portainer_data:
+  postgres_data:
 
 networks:
   microaspnet:
