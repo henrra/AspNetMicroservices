@@ -38,6 +38,13 @@ services:
       dockerfile: Services/Discount/Discount.API/Dockerfile
     networks:
       - microaspnet
+  discount.grpc:
+    image: ${DOCKER_REGISTRY-}discountgrpc
+    build:
+      context: .
+      dockerfile: Services/Discount/Discount.Grpc/Dockerfile
+    networks:
+      - microaspnet
 volumes:
   mongo_data:
   portainer_data:
