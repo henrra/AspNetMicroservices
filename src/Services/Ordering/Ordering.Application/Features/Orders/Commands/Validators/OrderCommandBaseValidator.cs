@@ -1,6 +1,8 @@
 using FluentValidation;
 using FluentValidation.Results;
 using Ordering.Application.Features.Orders.Commands.Models;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace Ordering.Application.Features.Orders.Commands.Validators
 {
