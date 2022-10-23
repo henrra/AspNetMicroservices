@@ -1,7 +1,6 @@
-using Discount.API.Entities;
-using Discount.API.Mappers;
+﻿using Discount.Grpc.Entities;
 
-namespace Discount.API.Configurations
+namespace Discount.Grpc.Configurations
 {
     public static class DapperConfig
     {

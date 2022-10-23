@@ -19,7 +19,7 @@ namespace Ordering.Application.Features.Orders.Commands.Validators
                 .NotEmpty().WithMessage("{EmailAddress} est requis.");
 
             RuleFor(p => p.TotalPrice)
-                .NotEmpty().WithMessage("{TotalPrice} est requis.")
+                .NotEmpty().WithMessage("{TotalPrice} est requis.")                
                 .GreaterThan(0).WithMessage("{TotalPrice} doit être supérieur à 0.");
         }
     }

@@ -1,5 +1,4 @@
-﻿using System;
-using Discount.Grpc.Protos;
+﻿using Discount.Grpc.Configurations;
 using Discount.Grpc.Repositories;
 using Discount.Grpc.Services;
 using Microsoft.AspNetCore.Builder;
@@ -17,6 +16,7 @@ namespace Discount.Grpc
             services.AddScoped<IDiscountRepository, DiscountRepository>();
             services.AddAutoMapper(typeof(Startup));
             services.AddGrpc();
+            DapperConfig.Configure();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

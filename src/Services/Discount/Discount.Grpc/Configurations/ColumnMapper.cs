@@ -1,9 +1,9 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using Dapper;
 
-namespace Discount.API.Mappers
+namespace Discount.Grpc.Configurations
 {
     public sealed class ColumnMapper<TEntity> where TEntity : class
     {

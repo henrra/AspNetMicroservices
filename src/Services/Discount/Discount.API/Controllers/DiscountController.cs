@@ -33,12 +33,12 @@ namespace Discount.API.Controllers
             await _discountRepository.CreateDiscountAsync(coupon);
             return CreatedAtRoute("GetDiscount", new { productName = coupon.ProductName }, coupon);
         }
-        
+
         [HttpPut]
         [ProducesResponseType(typeof(bool), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<bool>> UpdateDiscount([FromBody] Coupon coupon)
         {
-            
+
             return Ok(await _discountRepository.UpdateDiscountAsync(coupon));
         }
 

@@ -41,6 +41,9 @@ services:
       dockerfile: Services/Discount/Discount.Grpc/Dockerfile
     networks:
       - microaspnet
+  rabbitmq:
+    image: rabbitmq:management-alpine
+
 volumes:
   mongo_data:
   postgres_data:

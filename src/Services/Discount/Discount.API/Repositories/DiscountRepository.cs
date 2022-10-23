@@ -21,15 +21,13 @@ namespace Discount.API.Repositories
                 (_configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
             var coupon = await connection.QueryFirstOrDefaultAsync<Coupon>
                 ("SELECT * FROM public.coupon WHERE product_name = @ProductName", new { ProductName = productName });
-            if (coupon == null)
-            {
-                return new Coupon
+            return coupon
+                ?? new Coupon
                 {
-                    ProductName = "No Discount", Amount = 0, Description = "No Discount Desc"
+                    ProductName = "No Discount",
+                    Amount = 0,
+                    Description = "No Discount Desc"
                 };
-            }
-
-            return coupon;
         }
 
         public async Task<bool> CreateDiscountAsync(Coupon coupon)
@@ -38,7 +36,7 @@ namespace Discount.API.Repositories
                 (_configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
             int affected = await connection.ExecuteAsync
             ("INSERT INTO public.coupon (product_name, description, amount) values(@ProductName, @Description, @Amount)",
-                new { ProductName = coupon.ProductName, Description = coupon.Description, Amount = coupon.Amount });
+                new { coupon.ProductName, coupon.Description, coupon.Amount });
 
             return affected > 0;
         }
@@ -49,7 +47,7 @@ namespace Discount.API.Repositories
                 (_configuration.GetValue<string>("DatabaseSettings:ConnectionString"));
             int affected = await connection.ExecuteAsync
             ("UPDATE public.coupon SET product_name=@ProductName,  description=@Description, amount=@Amount)",
-                new { ProductName = coupon.ProductName, Description = coupon.Description, Amount = coupon.Amount });
+                new { coupon.ProductName, coupon.Description, coupon.Amount });
             return affected > 0;
         }
 
