@@ -40,6 +40,13 @@ services:
       context: .
       dockerfile: Services/Discount/Discount.Grpc/Dockerfile
     networks:
+      - microaspnet  
+  order.api:
+    image: ${DOCKER_REGISTRY-}orderapi
+    build:
+      context: .
+      dockerfile: Services/Ordering/Ordering.API/Dockerfile
+    networks:
       - microaspnet
   rabbitmq:
     image: rabbitmq:management-alpine

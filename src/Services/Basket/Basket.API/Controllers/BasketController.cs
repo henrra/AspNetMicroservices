@@ -38,7 +38,7 @@ namespace Basket.API.Controllers
 
         [HttpGet]
         [ProducesResponseType(typeof(ShoppingCart), (int)HttpStatusCode.OK)]
-        [Route("[action]/{userName}")]
+        [Route("{userName}")]
         public async Task<IActionResult> GetBasket(string userName)
         {
             ShoppingCart basket = await _basketRepository.GetBasket(userName);
@@ -60,7 +60,7 @@ namespace Basket.API.Controllers
         }
 
         [HttpDelete]
-        [Route("[action]/{userName}")]
+        [Route("{userName}")]
         [ProducesResponseType(typeof(ShoppingCart), (int)HttpStatusCode.OK)]
         public async Task<IActionResult> DeleteBasket(string userName)
         {
