@@ -33,7 +33,7 @@ namespace Basket.API.Controllers
             _basketRepository = basketRepository ?? throw new ArgumentNullException(nameof(basketRepository));
             _discountGrpcService = discountGrpcService;
             _mapper = mapper;
-            _publishEndpoint = publishEndpoint;            
+            _publishEndpoint = publishEndpoint;
         }
 
         [HttpGet]

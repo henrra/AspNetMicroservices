@@ -19,7 +19,7 @@ namespace Basket.API.Entities
 
         public decimal GetTotalPrice()
         {
-            return Items.Sum(cartItem => cartItem.Price * cartItem.Price);
+            return Items.Sum(cartItem => cartItem.Price * cartItem.Quantity);
         }
     }
 }
