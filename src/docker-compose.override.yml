@@ -12,7 +12,7 @@ services:
     container_name: basketdb
     restart: always
     ports:
-      - "6381:6381"
+      - "6381:6379"
   discountdb:
     container_name: discountdb
     environment:
@@ -28,6 +28,9 @@ services:
     container_name: catalog.api    
     environment:
       - ASPNETCORE_ENVIRONMENT=Development      
+      - "DatabaseSettings:ConnectionString=mongodb://catalogdb:27017"
+      - "DatabaseSettings:DatabaseName=ProductDb"
+      - "DatabaseSettings:CollectionName=Products"
     depends_on:
       - catalogdb
     ports:
