@@ -1,5 +1,5 @@
 {
-  "Routes": [   
+  "Routes": [
     // Catalog API
     {
       "DownstreamPathTemplate": "/api/v1/Catalog",
@@ -18,6 +18,9 @@
         "Period": "5s",
         "PeriodTimespan": 1,
         "Limit": 1
+      },
+      "FileCacheOptions": {
+        "TtlSeconds": 30
       }
     },
     {
